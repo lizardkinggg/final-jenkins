@@ -181,12 +181,12 @@ test-plugins:
 	py.test tests/sentry_plugins -vv --cov . --cov-report="xml:.artifacts/plugins.coverage.xml" --junit-xml=".artifacts/plugins.junit.xml"
 	@echo ""
 
-lint: lint-python lint-js
+lint: lint-python #lint-js
 
 # configuration for flake8 can be found in setup.cfg
 lint-python:
 	@echo "--> Linting python"
-	bash -eo pipefail -c "flake8 | tee .artifacts/flake8.pycodestyle.log"
+	bash -eo pipefail -c "flake8 | tee artifact/flake8.pycodestyle.log"
 	@echo ""
 
 review-python-snapshots:
